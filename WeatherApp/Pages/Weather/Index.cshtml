@@ -1,0 +1,21 @@
+@page
+@model WeatherApp.Pages.Weather.IndexModel
+@{
+    ViewData["Title"] = "Weather Search";
+}
+
+<h1>Weather Search</h1>
+
+<form method="get">
+    <label for="city">Enter City:</label>
+    <input type="text" id="city" name="city" value="@Model.City" required />
+    <button type="submit">Get Weather</button>
+</form>
+
+@if (Model.Weather != null)
+{
+    <h2>Weather in @Model.Weather.Name</h2>
+    <p>Temperature: @Model.Weather.Main.Temp °C</p>
+    <p>Humidity: @Model.Weather.Main.Humidity%</p>
+    <p>Description: @Model.Weather.Weather[0].Description</p>
+}
